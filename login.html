@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <!--DYNAMIC NAVBAR-->
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="index.html">SlideStream</a>
+        </div>
+      
+        
+      
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li>
+            <a href="#">Features</a>
+            <ul class="dropdown">
+              <li><a href="conversion.html">File Conversion</a></li>
+              <li><a href="dashboard.html">Generate Presentation</a></li>
+              <li><a href="extract.html">Extract Files</a></li>
+            </ul>
+          </li>
+        </ul>
+      
+        <!-- Login and Signup Buttons -->
+        <ul class="nav-logsign">
+          <li class="mobile-auth login"><a href="login.html">Login</a></li>
+          <li class="mobile-auth btn-signu"><a href="signup.html">Sign Up</a></li>
+        </ul>
+        <!-- Menu Toggle Button -->
+        <div class="menu-toggle" id="menu-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+
+      
+    <div class="login-container">
+        <!-- Left Column -->
+        <div class="login-image">
+            <img src="assets/images/slidestream006.jpeg" alt="Login Illustration">
+        </div>
+        <!-- Right Column -->
+        <div class="login-form">
+            <h1>SlideStream</h1>
+            <h2>Log in to your account</h2>
+            <p>Welcome back! Please enter your details.</p>
+            <form action="dashboard.html" method="POST">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <button type="submit" class="btn primary-btn">Login</button>
+                <div style="text-align: center; margin: 10px 0;">or</div>
+                <button type="submit" class="btn primary-btn">Continue with Google</button>
+            </form>
+            <p>or</p>
+            <!-- Google Login -->
+            <div id="g_id_onload"
+            data-client_id="455838124675-dt44onk5t15g53q84s0e3iqdhfvl6a6e.apps.googleusercontent.com"
+            data-login_uri="http://localhost:3000/auth/google"
+            data-callback="onSignIn">
+       </div>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+     <!-- Footer -->
+ <div id="footer-container"></div>
+ <script src="js/script.js"></script>
+ <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    // Toggle menu on button click
+    menuToggle.addEventListener('click', (event) => {
+      navLinks.classList.toggle('show');
+      menuToggle.classList.toggle('open');
+      event.stopPropagation(); // Prevent click event from propagating to the document
+    });
+    
+    // Close the menu if clicked outside
+    document.addEventListener('click', (event) => {
+      const isClickInside = navLinks.contains(event.target) || menuToggle.contains(event.target);
+    
+      if (!isClickInside) {
+        navLinks.classList.remove('show');
+        menuToggle.classList.remove('open');
+      }
+    });
+    
+    
+   </script>
+</body>
+</html>
